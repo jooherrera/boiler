@@ -8,7 +8,7 @@ services:
     volumes:
       - ./development:/development
     environment:
-      - DATABASE= mongodbDev
+      DATABASE: mongodbDev
   databaseDev:
     image: mongo:4.4.11
     container_name: mongodbDev
