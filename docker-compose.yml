@@ -9,6 +9,7 @@ services:
       - ./development:/development
     environment:
       DATABASE: mongodbDev
+    restart: always
   databaseDev:
     image: mongo:4.4.11
     container_name: mongodbDev
@@ -16,7 +17,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
     volumes:
-      - ./mongo-volume:/data/db
+      - ./development/mongo-volume:/data/db
     restart: always
     ports:
       - 27017:27017
