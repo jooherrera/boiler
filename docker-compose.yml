@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+  desarrollo:
+    container_name: desarrollo
+    build: .
+    ports:
+      - '${BACK_PORT}:3000'
+    volumes:
+      - ./development:/development
+    environment:
+      - DATABASE= mongodbDev
+  databaseDev:
+    image: mongo:4.4.11
+    container_name: mongodbDev
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - ./mongo-volume:/data/db
+    restart: always
+    ports:
+      - 27017:27017
